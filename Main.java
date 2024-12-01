@@ -3,19 +3,15 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        // Khởi tạo đối tượng StudentManager
         StudentManager manager = new StudentManager();
 
-        // Thêm một số sinh viên mẫu vào hệ thống
         manager.addStudent(new Student("S001", "Alice Johnson", 8.2));
         manager.addStudent(new Student("S002", "Bob Smith", 5.5));
         manager.addStudent(new Student("S003", "Charlie Brown", 9.1));
         manager.addStudent(new Student("S004", "David White", 7.0));
 
-        // Khởi tạo đối tượng Scanner để nhận đầu vào từ người dùng
         Scanner scanner = new Scanner(System.in);
 
-        // Menu hệ thống quản lý sinh viên
         while (true) {
             System.out.println("\nStudent Information Management System");
             System.out.println("1. Add Student");
@@ -30,14 +26,12 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    // Add student
                     System.out.print("Enter student ID: ");
                     String id = scanner.nextLine();
                     System.out.print("Enter student name: ");
                     String name = scanner.nextLine();
                     double marks = 0.0;
                     
-                    // Xử lý nhập điểm số, tránh lỗi InputMismatchException
                     boolean validMarks = false;
                     while (!validMarks) {
                         System.out.print("Enter student marks: ");
@@ -55,7 +49,6 @@ public class Main {
                     break;
 
                 case 2:
-                    // Delete student
                     System.out.print("Enter student ID to delete: ");
                     String deleteId = scanner.nextLine();
                     manager.deleteStudent(deleteId);
@@ -63,7 +56,6 @@ public class Main {
                     break;
 
                 case 3:
-                    // Search student
                     System.out.print("Enter student ID to search: ");
                     String searchId = scanner.nextLine();
                     Student student = manager.searchStudent(searchId);
@@ -75,13 +67,11 @@ public class Main {
                     break;
 
                 case 4:
-                    // Display all students
                     System.out.println("All Students:");
                     manager.displayAllStudents();
                     break;
 
                 case 5:
-                    // Exit
                     System.out.println("Exiting...");
                     scanner.close();
                     return;
